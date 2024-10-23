@@ -2,19 +2,25 @@ package main
 
 import (
 	"flag"
+	"github.com/username/Adviser-Bot/Clients/Telegram"
 	"log"
 )
 
+const (
+	tgBotHost = "api.telegram.org"
+)
+
 func main() {
-	t := mustToken()
+
+	tgClient := Telegram.New(mustToken())
 	// token = flags.Get(token)
-	// tgClient=telegram.New(token)
+
 	// fetcher = fetcher.New(tgClient)
 	// processor = processor.New(tgClient)
 	// consumer.Start(fetcher,processor)
 }
 
-func mustToken() (string, error) {
+func mustToken() string {
 	var token = flag.String(
 		"token-bot-token",
 		"",
